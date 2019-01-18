@@ -1,0 +1,49 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "textanalytics",
+        "func": "brightics.function.text_analytics.tfidf_gensim$tfidf_test13237",
+        "name": "brightics.function.text_analytics.tfidf_gensim$tfidf_test",
+        "context": "python",
+        "label": "gensim TFIDF Test",
+        "description": "",
+        "tags": [],
+        "version": "3.6",
+        "inputs": {
+            "table": "",
+            "fit_model": ""
+        },
+        "outputs": {
+            "out_table": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "fit_model": {
+                "type": "model"
+            },
+            "out_table": {
+                "type": "table"
+            }
+        },
+        "params": [
+            {
+                "id": "tokens_col",
+                "label": "Tokens Column",
+                "description": "Tokens Column",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": false
+            }
+        ]
+    },
+    "md": ""
+}
