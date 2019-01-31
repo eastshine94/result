@@ -1,0 +1,50 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "textanalytics",
+        "func": "brightics.function.text_analytics$tfidf_model_gensim13237",
+        "name": "brightics.function.text_analytics$tfidf_model_gensim",
+        "context": "python",
+        "label": "TFIDF Model(gensim)",
+        "description": "This function calculate the TF-IDF value of the input data using the learned TF-IDF model.\nFunction output is the matrix that the row length is the number of documents and the column length is the number of words in the dictionary of the trained model.\nHowever, since the matrix is ​​too large, it is converted to a sparse matrix.\nAs a result, it outputs json-shaped sparse vectors containing row-specific information of the sparse matrix.\nThe sparse vector contains three pieces of information: 'size', 'indices', and 'values'.\n'size' refers to the total number of words.\n'indices' tells the location of the columns where the tf-idf value is not zero.\n'values' ​​represents the tf-idf values of words.",
+        "tags": [],
+        "version": "3.6",
+        "inputs": {
+            "table": "",
+            "model": ""
+        },
+        "outputs": {
+            "out_table": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "out_table": {
+                "type": "table"
+            },
+            "model": {
+                "type": "model"
+            }
+        },
+        "params": [
+            {
+                "id": "output_col_name",
+                "label": "Output Column Name",
+                "description": "Set the sparse vector column name to be output. ",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "type": "String",
+                "placeHolder": "sparse_vectors"
+            }
+        ]
+    },
+    "md": ""
+}

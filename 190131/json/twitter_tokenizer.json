@@ -1,0 +1,226 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "textanalytics",
+        "func": "brightics.function.text_analytics$twitter_tokenizer99450",
+        "name": "brightics.function.text_analytics$twitter_tokenizer",
+        "context": "python",
+        "label": "Twitter Tokenizer",
+        "description": "When you’re analyzing Korean text, the most basic task you need to perform is morphological analysis. \nTwitter Tokenizer is basic tool to achieve this.\nA token is a string that has meaning. The token includes a morpheme(a minimum unit of meaning) or a word (a minimum unit that can be used independently).  \nAnalyze the input sentence as a morpheme and tag the part of speech. \nAs a result, the token and the corresponding part of speech are output.\n\nReference :\n\nStemming : <https://en.wikipedia.org/wiki/Stemming>\nKorean PoS tags : <https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0>\n",
+        "tags": [],
+        "version": "3.6",
+        "inputs": {
+            "table": ""
+        },
+        "outputs": {
+            "out_table": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "out_table": {
+                "type": "table"
+            }
+        },
+        "params": [
+            {
+                "id": "input_col",
+                "label": "Input Column",
+                "description": "Select the column that contains the Korean data. It must be string type.",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [
+                    "String"
+                ],
+                "validation": [],
+                "multiple": false
+            },
+            {
+                "id": "token_col_name",
+                "label": "Token Column Name",
+                "description": "Set the token column name to be output. ",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "type": "String"
+            },
+            {
+                "id": "pos_col_name",
+                "label": "Pos Column Name",
+                "description": "Set the part of speech column name to be output.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "type": "String"
+            },
+            {
+                "id": "stemming",
+                "label": "Stemming",
+                "description": "Stemming is the process of reducing inflected (or sometimes derived) words to their word stem, base or root form.\nex) 이다, 입니다, 이었다, 이었니 => 이다 \n\nChoose whether to stemming.\nIn details, see the references in the description.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "BooleanRadio",
+                "columnType": [],
+                "validation": [],
+                "defaultValue": true
+            },
+            {
+                "id": "normalization",
+                "label": "Text Normalization",
+                "description": "Text normalization is the process of transforming text into a single canonical form that it might not have had before.\nex) ㅋㅋㅋ, ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ => ㅋㅋ\n\t이닼ㅋㅋㅋㅋ => [이다, ㅋㅋ]\n\nChoose whether to normalization.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "BooleanRadio",
+                "columnType": [],
+                "validation": [],
+                "defaultValue": true
+            },
+            {
+                "id": "morphemes",
+                "label": "Morphemes",
+                "description": "Select the part of speech of morpheme you want to output.\nIf nothing is selected, all morphemes are output.\n\nFor information on part-of-speech, see the references in the description.",
+                "mandatory": false,
+                "items": [
+                    {
+                        "label": "Noun",
+                        "value": "Noun",
+                        "default": false
+                    },
+                    {
+                        "label": "Verb",
+                        "value": "Verb",
+                        "default": false
+                    },
+                    {
+                        "label": "Adjective",
+                        "value": "Adjective",
+                        "default": false
+                    },
+                    {
+                        "label": "Determiner",
+                        "value": "Determiner",
+                        "default": false
+                    },
+                    {
+                        "label": "Adverb",
+                        "value": "Adverb",
+                        "default": false
+                    },
+                    {
+                        "label": "Conjunction",
+                        "value": "Conjunction",
+                        "default": false
+                    },
+                    {
+                        "label": "Exclamation",
+                        "value": "Exclamation",
+                        "default": false
+                    },
+                    {
+                        "label": "Josa",
+                        "value": "Josa",
+                        "default": false
+                    },
+                    {
+                        "label": "PreEomi",
+                        "value": "PreEomi",
+                        "default": false
+                    },
+                    {
+                        "label": "Eomi",
+                        "value": "Eomi",
+                        "default": false
+                    },
+                    {
+                        "label": "Suffix",
+                        "value": "Suffix",
+                        "default": false
+                    },
+                    {
+                        "label": "Punctuation",
+                        "value": "Punctuation",
+                        "default": false
+                    },
+                    {
+                        "label": "Foreign",
+                        "value": "Foreign",
+                        "default": false
+                    },
+                    {
+                        "label": "Alpha",
+                        "value": "Alpha",
+                        "default": false
+                    },
+                    {
+                        "label": "Number",
+                        "value": "Number",
+                        "default": false
+                    },
+                    {
+                        "label": "Unknown",
+                        "value": "Unknown",
+                        "default": false
+                    },
+                    {
+                        "label": "KoreanParticle",
+                        "value": "KoreanParticle",
+                        "default": false
+                    },
+                    {
+                        "label": "Hashtag",
+                        "value": "Hashtag",
+                        "default": false
+                    },
+                    {
+                        "label": "ScreenName",
+                        "value": "ScreenName",
+                        "default": false
+                    },
+                    {
+                        "label": "Email",
+                        "value": "Email",
+                        "default": false
+                    },
+                    {
+                        "label": "URL",
+                        "value": "URL",
+                        "default": false
+                    }
+                   
+                ],
+                "visibleOption": [],
+                "control": "CheckBox",
+                "columnType": [],
+                "validation": []
+            },
+            {
+                "id": "group_by",
+                "label": "Group By",
+                "description": "Columns to group by",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": true,
+                "rowCount": 5
+            }
+        ]
+    },
+    "md": ""
+}

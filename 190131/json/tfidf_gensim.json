@@ -1,0 +1,163 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "textanalytics",
+        "func": "brightics.function.text_analytics$tfidf_gensim13237",
+        "name": "brightics.function.text_analytics$tfidf_gensim",
+        "context": "python",
+        "label": "TFIDF(gensim)",
+        "description": "TF(Term Frequency) is a value that indicates how often a word appears in the document.\nDF(Document Frequency) is the value of how often words appear in the entire document. \nIDF(Inverse Document Frequency) is inverse of DF.\nTF-IDF is a value of multiplying TF and IDF. \nThe higher value means a word that appears in a particular documents, not a many documents.\n\nThis is a function to calculate TF-IDF. \nInput values are documents that are tokenized. \nFunction output is the matrix that the row length is the number of documents and the column length is the number of words.\nHowever, since the matrix is ​​too large, it is converted to a sparse matrix.\nAs a result, it outputs json-shaped sparse vectors containing row-specific information of the sparse matrix.\nIn this case, the column number refers to a specific word. This can be confirmed in the Dictionary table in the output model.\nThe sparse vector contains three pieces of information: 'size', 'indices', and 'values'.\n'size' refers to the total number of words.\n'indices' tells the location of the columns where the tf-idf value is not zero.\n'values' ​​represents the tf-idf values of words.\n\nReference :\n\nTF-IDF : <https://en.wikipedia.org/wiki/Tf%E2%80%93idf>\nTF-IDF weighting : <https://en.wikipedia.org/wiki/SMART_Information_Retrieval_System>\nCosine Similarity : <https://en.wikipedia.org/wiki/Cosine_similarity>",
+        "tags": [
+            "TFIDF"
+        ],
+        "version": "3.6",
+        "outputs": {
+            "out_table": "",
+            "model": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "out_table": {
+                "type": "table"
+            },
+            "model": {
+                "type": "model"
+            }
+        },
+        "params": [
+            {
+                "id": "input_col",
+                "label": "Input Column",
+                "description": "Select the column with the tokenized document using the tokenizer.",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": false
+            },
+            {
+                "id": "output_col_name",
+                "label": "Output Column Name",
+                "description": "Set the sparse vector column name to be output. ",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "placeHolder": "sparse_vectors",
+                "type": "String"
+            },
+            {
+                "id": "tf_weighing",
+                "label": "Term Frequency Weighing",
+                "description": "Select how to calculate a TF(Term Frequency) value.\nIn details, see the references in the description.\n",
+                "mandatory": false,
+                "items": [
+                    {
+                        "label": "Natural",
+                        "value": "n",
+                        "default": true
+                    },
+                    {
+                        "label": "Logarithm",
+                        "value": "l",
+                        "default": false
+                    },
+                    {
+                        "label": "Augmented",
+                        "value": "a",
+                        "default": false
+                    },
+                    {
+                        "label": "Boolean",
+                        "value": "b",
+                        "default": false
+                    },
+                    {
+                        "label": "Log Average",
+                        "value": "L",
+                        "default": false
+                    }
+                ],
+                "visibleOption": [],
+                "control": "RadioButton",
+                "columnType": [],
+                "validation": []
+            },
+            {
+                "id": "df_weighing",
+                "label": "Document Frequency Weighting",
+                "description": "Select how to calculate a DF(Document Frequency) value.\nIn details, see the references in the description.",
+                "mandatory": false,
+                "items": [
+                    {
+                        "label": "None",
+                        "value": "n",
+                        "default": false
+                    },
+                    {
+                        "label": "IDF",
+                        "value": "t",
+                        "default": true
+                    },
+                    {
+                        "label": "Prob IDF",
+                        "value": "p",
+                        "default": false
+                    }
+                ],
+                "visibleOption": [],
+                "control": "RadioButton",
+                "columnType": [],
+                "validation": []
+            },
+            {
+                "id": "document_normalization",
+                "label": "Document Normalization",
+                "description": "The TF-IDF represents your documents in a common vector space. If you then calculate the cosine similarity between these vectors, the cosine similarity compensates for the effect of different documents' length. The reason is that the cosine similarity evaluates the orientation of the vectors and not their magnitude.\nAs a result, the TF-IDF vectors are converted into unit vectors.\n\nIt is select whether using cosine similarity.\n\nIn details, see the references in the description.",
+                "mandatory": false,
+                "items": [
+                    {
+                        "label": "None",
+                        "value": "n",
+                        "default": false
+                    },
+                    {
+                        "label": "Cosine",
+                        "value": "c",
+                        "default": true
+                    }
+                ],
+                "visibleOption": [],
+                "control": "RadioButton",
+                "columnType": [],
+                "validation": []
+            },
+            {
+                "id": "group_by",
+                "label": "Group By",
+                "description": "Columns to group by",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": true,
+                "rowCount": 5
+            }
+        ],
+        "inputs": {
+            "table": ""
+        }
+    },
+    "md": ""
+}

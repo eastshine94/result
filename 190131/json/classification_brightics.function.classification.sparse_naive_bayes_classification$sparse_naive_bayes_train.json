@@ -1,0 +1,107 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "classification",
+        "func": "brightics.function.classification.sparse_naive_bayes_classification$sparse_naive_bayes_train73130",
+        "name": "brightics.function.classification.sparse_naive_bayes_classification$sparse_naive_bayes_train",
+        "context": "python",
+        "label": "Sparse Naive Bayes Train",
+        "description": "NaiveBayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem with strong(naive) independence assumptions between the features.\n\n* Only Multinomial Naive Bayes is allowed now.\n\nConverts json-shaped sparse vectors into a sparse matrix. This sparse matrix is ​​used to train the naive-bayes model.\n\nReference :\n\nhttps://en.wikipedia.org/wiki/Naive_Bayes_classifier",
+        "tags": [
+            "Classification",
+            "Naive Bayes"
+        ],
+        "version": "3.6",
+        "inputs": {
+            "table": ""
+        },
+        "outputs": {
+            "model": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "model": {
+                "type": "model"
+            }
+        },
+        "params": [
+            {
+                "id": "sparse_vector_col",
+                "label": "Input Column",
+                "description": "Choose the sparse vector column.",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [
+                    "String"
+                ],
+                "validation": [],
+                "multiple": false
+            },
+            {
+                "id": "label_col",
+                "label": "Label Column",
+                "description": "Label column names. It should be float, double, integer, long or string types.",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [
+                    "Integer",
+                    "Long",
+                    "Double",
+                    "String",
+                    "Float"
+                ],
+                "validation": [],
+                "multiple": false
+            },
+            {
+                "id": "alpha",
+                "label": "Lambda",
+                "description": "Smoothing parameter (default = 1.0)",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "placeHolder": "1.0 (0 < value)",
+                "type": "Double",
+                "min": 0
+            },
+            {
+                "id": "fit_prior",
+                "label": "Fit Class Prior Probabilities",
+                "description": "Whether to learn class prior probabilities or not. If false, a uniform prior will be used.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "BooleanRadio",
+                "columnType": [],
+                "validation": [],
+                "defaultValue": true
+            },
+            {
+                "id": "group_by",
+                "label": "Group By",
+                "description": "Columns to group by",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": true,
+                "rowCount": 5
+            }
+        ]
+    },
+    "md": ""
+}

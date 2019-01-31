@@ -1,0 +1,73 @@
+{
+    "script": {
+        "type": "",
+        "content": ""
+    },
+    "specJson": {
+        "category": "textanalytics",
+        "func": "brightics.function.text_analytics.remove_stopwords$remove_stopwordswords",
+        "name": "brightics.function.text_analytics.remove_stopwords$remove_stopwords",
+        "context": "python",
+        "label": "Remove Stopwords",
+        "description": "Stop words are words which are filtered out before or after processing of natural language data (text).  \nThis function filters words you do not want to be output.  \nIf you enter words to remove, the words are removed from the word lists.  ",
+        "tags": [
+            "stopwords"
+        ],
+        "version": "3.6",
+        "inputs": {
+            "table": ""
+        },
+        "outputs": {
+            "out_table": ""
+        },
+        "meta": {
+            "table": {
+                "type": "table"
+            },
+            "out_table": {
+                "type": "table"
+            }
+        },
+        "params": [
+            {
+                "id": "input_col",
+                "label": "Input Column",
+                "description": "Select the column with the tokenized document using the tokenizer.",
+                "mandatory": true,
+                "items": [],
+                "visibleOption": [],
+                "control": "ColumnSelector",
+                "columnType": [],
+                "validation": [],
+                "multiple": false
+            },
+            {
+                "id": "stopwords",
+                "label": "Stopwords",
+                "description": "Input a word to remove.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "ArrayInput",
+                "columnType": [],
+                "validation": [],
+                "placeHolder": "",
+                "type": "String"
+            },
+            {
+                "id": "output_col_name",
+                "label": "Output Column Name",
+                "description": "Set the output column name to be output.  \nThe output value is  lists of words with stopwords removed.",
+                "mandatory": false,
+                "items": [],
+                "visibleOption": [],
+                "control": "InputBox",
+                "columnType": [],
+                "validation": [],
+                "placeHolder": "removed",
+                "type": "String"
+            }
+        ]
+    },
+    "md": ""
+}
